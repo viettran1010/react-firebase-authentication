@@ -5,10 +5,10 @@ import { compose } from 'recompose';
 
 import * as ROUTES from '../../constants/routes';
 const INITIAL_STATE = {
-    username: '',
-    email: '',
-    passwordOne: '',
-    passwordTwo: '',
+    username: 'a',
+    email: 'a@a.com',
+    passwordOne: '123456',
+    passwordTwo: '123456',
     error: null,
   };
   
@@ -17,7 +17,8 @@ const SignUpPage = () => (
     <h1>SignUp</h1>
     <SignUpForm></SignUpForm>
     {/* { withRouter(withFirebase(SignUpForm))} */}
-    {/* {compose(withRouter,withFirebase)(SignUpForm)} */}    
+    {/* {compose(withRouter,withFirebase)(SignUpForm)} */}
+    {/* <SignUpForm></SignUpForm> */}
   </div>
 );
  
@@ -28,19 +29,21 @@ class SignUpFormBase extends Component {
   }
  
   onSubmit = event => {
-    const {username, email, passwordOne} = this.state;
-
-    this.props.firebase.doCreateUserWithEmailAndPassword(email, passwordOne)
-    .then((authUser)=>{
-        console.log(authUser)
-         this.setState({INITIAL_STATE});
-         this.props.history.push(ROUTES.HOME);
-    })
-    .catch((error)=>{
-        this.setState({error})
-    })
-    event.preventDefault()
-  }
+    const { username, email, passwordOne } = this.state;
+ 
+    this.props.firebase
+      .doCreateUserWithEmailAndPassword(email, passwordOne)
+      .then(authUser => {
+        // alert(111111)
+        this.setState({ ...INITIAL_STATE });
+        this.props.history.push(ROUTES.HOME);
+      })
+      .catch(error => {
+        this.setState({ error });
+      });
+ 
+    event.preventDefault();
+  };
  
   onChange = event => {
     this.setState({ [event.target.name]: event.target.value });
