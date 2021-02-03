@@ -34,3 +34,4 @@ const config = {
   }
 
   export default Firebase;
+  
