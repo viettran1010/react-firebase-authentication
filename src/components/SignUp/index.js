@@ -17,8 +17,7 @@ const SignUpPage = () => (
     <h1>SignUp</h1>
     <SignUpForm></SignUpForm>
     {/* { withRouter(withFirebase(SignUpForm))} */}
-    {/* {compose(withRouter,withFirebase)(SignUpForm)} */}
-    {/* <SignUpForm></SignUpForm> */}
+    {/* {compose(withRouter,withFirebase)(SignUpForm)} */}    
   </div>
 );
  
