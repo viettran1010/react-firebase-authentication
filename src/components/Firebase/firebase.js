@@ -18,13 +18,11 @@ const config = {
       this.auth = app.auth();
     }
 
-    doCreateUserWithEmailAndPassword = (email, password) => {
-        this.auth.createUserWithEmailAndPassword(email, password)
-    }
+    doCreateUserWithEmailAndPassword = (email, password) =>
+        this.auth.createUserWithEmailAndPassword(email, password)    
 
-    doSignInWithEmailAndPassword = (email, password) => [
-        this.auth.signInWithEmailAndPassword(email, password)
-    ]
+    doSignInWithEmailAndPassword = (email, password) => 
+        this.auth.signInWithEmailAndPassword(email, password)    
 
     doSignOut = ()=> this.auth.signOut();
 
