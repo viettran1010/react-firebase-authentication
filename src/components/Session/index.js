@@ -1,5 +1,4 @@
-import React from 'react';
+import AuthUserContext from './context';
+import withAuthentication from './withAuthentication';
  
-const AuthUserContext = React.createContext(null);
- 
-export default AuthUserContext;
+export { AuthUserContext, withAuthentication };
