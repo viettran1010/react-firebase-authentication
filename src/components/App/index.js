@@ -7,7 +7,9 @@ import PasswordForgetPage from '../PasswordForget';
 import HomePage from '../Home';
 import AccountPage from '../Account';
 import AdminPage from '../Admin';
-import {withFirebase} from '../Firebase' 
+// import {withFirebase} from '../Firebase' 
+import { withAuthentication } from '../Session';
+
 import Navigation from '../Navigation';
 
 import * as ROUTES from '../../constants/routes';
@@ -43,4 +45,4 @@ const App = (props) => {
   </Router>
 }
  
-export default withFirebase(App);
+export default withAuthentication(App);

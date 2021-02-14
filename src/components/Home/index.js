@@ -1,9 +1,13 @@
 import React from 'react';
- 
-const Landing = () => (
+import { withAuthorization } from '../Session';
+
+const HomePage = () => (
   <div>
-      Home
+      <h1>Home</h1>
+      <p>The Home Page is accessible by every signed in user.</p>
   </div>
 );
- 
-export default Landing;
+
+const condition = authUser => !!authUser
+
+export default withAuthorization(condition)(HomePage);
